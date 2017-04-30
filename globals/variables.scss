@@ -1,0 +1,25 @@
+// blocks.04.1-typography
+$font-size-base:          14px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+// block: 'space'
+$x: 3px !default;
+$s: 5px !default;
+$m: 10px !default;
+$l: 20px !default;
+
+$vertical-rhythm-base: $l !default;
+
+// block: 'h'
+$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;

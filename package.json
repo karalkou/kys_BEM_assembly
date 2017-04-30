@@ -46,7 +46,9 @@
     "postcss-url": "^5.1.2",
     "rebem-css": "^0.2.0",
     "through2-filter": "^2.0.0",
-    "ym": "^0.1.2"
+    "ym": "^0.1.2",
+    "object-hash": "*",
+    "node-sass": "*"
   },
   "scripts": {
     "test": "enb make && enb make clean && gulp",

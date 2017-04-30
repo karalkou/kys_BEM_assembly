@@ -1,0 +1,145 @@
+@mixin font-size($font-size, $font-size-small: $font-size-large, $style: font-size){
+  @if(($font-size/100px) * (percentage($screen-xs-min / $screen-lg-min) / 1%) < ($font-size-small / 1px)){
+    #{$style}: ceil($font-size-small);
+  }
+  @else {
+    #{$style}: ceil(($font-size/100) * (percentage($screen-xs-min / $screen-lg-min) / 1%));
+  }
+
+  @if(($font-size/100px) * (percentage($screen-xs-max / $screen-lg-min)/ 1%) > ($font-size-small / 1px)){
+    @media (min-width: $screen-xs-max) {
+      #{$style}: ceil(($font-size/100) * (percentage($screen-xs-max / $screen-lg-min)/ 1%));
+    }
+  }
+
+  @if(($font-size/100px) * (percentage($screen-sm-min / $screen-lg-min) / 1%) > ($font-size-small / 1px)){
+    @media (min-width: $screen-sm-min) {
+      #{$style}: ceil(($font-size/100) * (percentage($screen-sm-min / $screen-lg-min) / 1%));
+    }
+  }
+
+  @if(($font-size/100px) * (percentage($screen-md-min / $screen-lg-min) / 1%) > ($font-size-small / 1px)){
+    @media (min-width: $screen-md-min) {
+      #{$style}: ceil(($font-size/100) * (percentage($screen-md-min / $screen-lg-min) / 1%));
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    #{$style}: ceil($font-size);
+  }
+}
+
+@mixin media-style($name, $xs, $sm, $md, $lg){
+  #{$name}: $xs;
+  @media (min-width: $screen-sm-min) {#{$name}: $sm}
+  @media (min-width: $screen-md-min) {#{$name}: $md}
+  @media (min-width: $screen-lg-min) {#{$name}: $lg}
+}
+
+@mixin font-family($font-family){
+  .custom-fonts-loaded & {
+    font-family: $font-family;
+  }
+}
+
+@mixin super-border($columns, $grid-columns: 12){
+  $k : floor($grid-columns / $columns);
+  box-shadow: 1px  1px  0px  $gray-light;
+  &:nth-child(#{$k}n){
+    box-shadow: 0px  1px  0px  $gray-light;
+  }
+}
+
+@mixin alert-variant($background, $border, $text-color) {
+  border-style: dashed;
+  border-color: $border;
+  background-color: $background;
+  color: #292929;
+  border-radius: 0;
+
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+  .alert-link {
+    color: darken($text-color, 10%);
+  }
+}
+
+@mixin button-variant($color, $background, $border) {
+  $color-hover:  $color !default;
+  $background-hover:  darken($background, 10%) !default;
+  $border-hover: darken($border, 12%) !default;
+
+  $color-disable: $color !default;
+  $background-disable: $background !default;
+  $border-disable: $border !default;
+
+  $color-focus: $color !default;
+  $background-focus: darken($background, 10%) !default;
+  $border-focus: darken($border, 25%) !default;
+
+  $color-active: $color !default;
+  $background-active: $background-hover !default;
+  $border-active: $border-hover !default;
+
+//  Нестандартное переопределение цвета кнопки
+//  @if $background == $btn-primary-bg {
+//
+//
+//  } @else if $background == $btn-danger-bg {
+//
+//
+//  } @else if $background == $btn-default-bg {
+//
+//  }
+
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus {
+    color: $color-focus;
+    background-color: $background-focus;
+    border-color: $border-focus;
+  }
+  &:hover {
+    color: $color-hover;
+    background-color: $background-hover;
+    border-color: $border-hover;
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color-active;
+    background-color: $background-active;
+    border-color: $border-active;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color-focus;
+      background-color: $background-focus;
+      border-color: $border-focus;
+    }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}

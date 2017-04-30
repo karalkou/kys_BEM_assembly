@@ -1,6 +1,1 @@
-/*
-({
-    mustDeps: [
-        { block: 'jquery' }
-    ]
-})*/
+

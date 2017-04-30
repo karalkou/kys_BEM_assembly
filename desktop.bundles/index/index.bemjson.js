@@ -31,6 +31,28 @@ module.exports = {
             ]
         },
         {
+            block: 'container',
+            content: [
+                {
+                    block: 'row',
+                    content: [
+                        {
+                            block: 'col-xs-4',
+                            content: 'col-xs-4'
+                        },
+                        {
+                            block: 'col-xs-4',
+                            content: 'col-xs-4'
+                        },
+                        {
+                            block: 'col-xs-4',
+                            content: 'col-xs-4'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             block: 'footer',
             content: [
                 'footer content goes here'
