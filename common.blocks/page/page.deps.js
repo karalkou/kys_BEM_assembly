@@ -1,6 +1,7 @@
 ({
     mustDeps: [
-        { block: 'bootstrap' }
+        { block: 'bootstrap' },
+        { block: 'space' }
     ],
     shouldDeps: [
         { block: 'jquery' }
